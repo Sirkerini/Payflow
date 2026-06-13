@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+    <title>Pay Flow</title>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="static/img/logo.png" alt="Logo">
+            <h2>Payflow</h2>
+        </div>
+
+        <nav>
+            <a href="/logout" class="nav-link">Cerrar sesion</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="bienvenida">
+            <h1>Bienvenido, {{nombre}} 👋</h1>
+            <p>Gestiona tus transferencias y movimientos fácilmente.</p>
+        </section>
+
+        <section class="dashboard-grid">
+
+            
+            <div class="balance-card">
+
+                <div class="balance-top">
+                    <p>Saldo Disponible</p>
+                    <span>● Activa</span>
+                </div>
+
+                <h2>${{balance}}</h2>
+
+                <div class="chart"></div>
+
+                <div class="balance-stats">
+                    <div>
+                        <small>Ingresos</small>
+                        <h4>$1200</h4>
+                    </div>
+
+                    <div>
+                        <small>Gastos</small>
+                        <h4>$593</h4>
+                    </div>
+                </div>
+
+            </div>
+
+            
+            <div class="actions-card">
+
+                <h3>Acciones rápidas</h3>
+
+                <a href="/transaccion">
+                    <button>Nueva transferencia</button>
+                </a>
+
+                <a href="/amigos">
+                    <button>Ver usuarios</button>
+                </a>
+
+                <button class="btn-secundario">Depositar</button>
+
+                <button class="btn-secundario">Retirar</button>
+
+            </div>
+
+        </section>
+
+       
+
+        <section class="historial-section">
+
+            <div class="historial-header">
+                <h2>Historial de transacciones</h2>
+                <p>Todas tus operaciones recientes</p>
+            </div>
+
+            <div class="tabla-container">
+
+                <table>
+
+                    <tr>
+                        <th>Emisor</th>
+                        <th>Receptor</th>
+                        <th>Monto</th>
+                        <th>Descripción</th>
+                        <th>Fecha</th>
+                    </tr>
+
+                    {% for t in historial %}
+                    <tr>
+                        <td>{{ t.sender_email }}</td>
+                        <td>{{ t.receiver_email }}</td>
+                        <td class="amount">${{ t.amount }}</td>
+                        <td>{{ t.descriptions }}</td>
+                        <td>{{ t.created_time }}</td>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

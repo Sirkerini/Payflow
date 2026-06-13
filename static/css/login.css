@@ -1,0 +1,62 @@
+body{
+    margin: 0;
+    padding: 10px;
+    background-image: url(/static/img/img_register.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: aliceblue;
+
+}
+
+/*header{
+    display: flex;
+    justify-content: center;
+    height: 70px;
+    align-items: center;
+    padding-right: 10px;
+}
+**/
+.logo {
+    display: flex;
+    justify-content: center;
+   
+}
+
+.logo img{
+    height: 150px;
+}
+
+.parrafo1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sub_ti1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 200px;
+    
+}
+
+button{
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    width:200px;
+    height: 50px;
+}
+
+
+button:hover{
+    color: rgb(0, 0, 0);
+    background-color: wheat
+}

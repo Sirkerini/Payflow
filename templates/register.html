@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/register.css">
+    <title>Pay Flow</title>
+</head>
+<body>
+        <div class="logo">
+            <img src="static/img/logo_no_back.png" alt="Logo de empresa">
+
+        </div>
+
+    <p class="parrafo1">Bienvenido a mi red de transferencia</p>
+
+    <h1 class="sub_ti1">REGISTER - Crear cuenta</h1>
+
+    <form method="POST" action="/register">
+        <div class="container1">
+        <div>
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" placeholder="Ingresa tu Nombre">
+        </div>
+
+        <div>
+            <label for="apellido">Apellido</label>
+            <input type="text" name="apellido" placeholder="Ingresa tu Apellido">
+        </div>
+
+        <div>
+            <label for="pin">Password</label>
+            <input type="password" name="pin" placeholder="Ingresa tu Contrasena">
+        </div>
+
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="Ingresa tu Email">
+        </div>
+
+        </div>
+        <button type="submit">Registrarte!</button>
+    </form>
+
+</body>
+</html>

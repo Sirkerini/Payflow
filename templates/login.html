@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <title>Pay Flow</title>
+</head>
+<body>
+
+    <div class="logo">
+            <img src="static/img/logo_no_back.png" alt="Logo de empresa">
+
+        </div>
+
+
+    <p class="parrafo1">Bienvenido a mi red de transferencia</p>
+
+    <h1 class="sub_ti1">Login - Iniciar sesion</h1>
+
+    <form method="POST" action="/login">
+        <div class="container1">
+        <div>
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" placeholder="Ingresa tu Nombre">
+        </div>
+
+        <div>
+            <label for="pin_hash">Password</label>
+            <input type="password" name="pin" placeholder="Ingresa tu Contrasena">
+        </div>
+
+        </div>
+        <button type="submit">Iniciar sesion!</button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/transferencias.css">
+    <title>Pay Flow</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/static/img/logo.png" alt="Logo de empresa">
+
+        </div>
+
+         <nav>
+            <a href="/dashboard" class="nav-link">Volver al Menu</a>
+        </nav>
+    </header>
+    
+    
+
+    <main class="transfer-container">
+
+    <div class="transfer-card">
+
+        <h1>Nueva Transferencia</h1>
+
+        <div class="balance-info">
+            <p>Saldo disponible</p>
+            <h2>${{balance}}</h2>
+        </div>
+
+        <p class="email-info">
+            Enviando dinero desde: {{email}}
+        </p>
+
+        <form method="POST" action="/transaccion">
+
+            <div class="form-group">
+                <label>Quien recibe</label>
+                <input type="email" name="receiver_email" value="{{receiver}}">
+            </div>
+
+            <div class="form-group">
+                <label>Monto</label>
+                <input type="number" name="amount">
+            </div>
+
+            <div class="form-group">
+                <label>Comentario</label>
+                <input type="text" name="descriptions">
+            </div>
+
+            <button type="submit">
+                Enviar transferencia
+            </button>
+
+        </form>
+
+    </div>
+
+</main>
+
+
+
+</body>
+</html>

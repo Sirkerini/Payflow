@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/ver_amigos.css">
+    <title>Pay Flow</title>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="static/img/logo.png" alt="Logo">
+            <h2>Payflow</h2>
+        </div>
+
+        <nav>
+            <a href="/dashboard" class="nav-link">Volver al Menu</a>
+        </nav>
+    </header>
+
+        <section class="amigos_section">
+
+            <div class="header">
+                <h2>Menu de amigos</h2>
+                <p>Aqui estan todos tus amigos {{nombre}}!</p>
+            </div>
+
+            <div class="tabla-container">
+
+                <table>
+
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                    </tr>
+
+                    {% for t in amigos %}
+                <tr onclick="window.location='/transaccion?receiver={{t.email}}'"class="fila-click">
+
+                <td>{{ t.nombre }}</td>
+
+                <td>{{ t.email }}</td>
+
+                </tr>
+                    {% endfor %}
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
