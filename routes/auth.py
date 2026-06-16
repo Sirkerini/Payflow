@@ -93,7 +93,7 @@ def login():
      return jsonify({"msj": "Credenciales invalidas"}), 401
 
     
-    if not usuario or not bcrypt.checkpw(pin.encode("utf-8"), usuario["pin_hash"]):
+    if not usuario or not bcrypt.checkpw(pin.encode("utf-8"), bytes(usuario["pin_hash"])):
         return jsonify({"msj": "Credenciales invalidas"}), 401
 
     

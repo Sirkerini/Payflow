@@ -99,7 +99,7 @@ def crear_transaccion(sender_email, receiver_email, amount, descriptions):
 #Ver registro de transaccion
 def historial_transaccion(email):
     conn = get_connection()
-    cursor = conn.cursor(dcursor_factory=RealDictCursor)
+    cursor = conn.cursor(cursor_factory=RealDictCursor)
     try:
         cursor.execute("SELECT * FROM transactions WHERE sender_email = %s OR receiver_email = %s", (email,email))
         return cursor.fetchall()
