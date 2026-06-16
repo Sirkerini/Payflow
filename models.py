@@ -1,6 +1,7 @@
 from db import get_connection
 import bcrypt
 from decimal import Decimal
+from psycopg2.extras import RealDictCursor
 
 #funciones para el bcyrpt
 def hash_password(password: str) -> bytes:
@@ -27,7 +28,7 @@ def crear_user(nombre, apellido, pin, email):
 #LOGIN DE USER
 def get_user_login(nombre):
     conn = get_connection()
-    cursor = conn.cursor(dictionary=True)
+    cursor = conn.cursor(cursor_factory=RealDictCursor)
     try:
         sql = "SELECT id, nombre, pin_hash, email FROM users WHERE nombre = %s"
         cursor.execute(sql, (nombre,))
@@ -40,7 +41,7 @@ def get_user_login(nombre):
 #DASHBOARD
 def get_profile(email):
     conn = get_connection()
-    cursor = conn.cursor(dictionary=True)
+    cursor = conn.cursor(cursor_factory=RealDictCursor)
     try:
         sql = "SELECT nombre FROM users WHERE email = %s"
         cursor.execute(sql, (email,))
@@ -54,7 +55,7 @@ def get_profile(email):
 def crear_transaccion(sender_email, receiver_email, amount, descriptions):
     amount = Decimal(str(amount))
     conn = get_connection()
-    cursor = conn.cursor(dictionary=True)
+    cursor = conn.cursor(cursor_factory=RealDictCursor)
     try:
         #Verifico el balance del que recibe
         cursor.execute("SELECT balance FROM users WHERE email = %s", (sender_email,))
@@ -98,7 +99,7 @@ def crear_transaccion(sender_email, receiver_email, amount, descriptions):
 #Ver registro de transaccion
 def historial_transaccion(email):
     conn = get_connection()
-    cursor = conn.cursor(dictionary=True)
+    cursor = conn.cursor(dcursor_factory=RealDictCursor)
     try:
         cursor.execute("SELECT * FROM transactions WHERE sender_email = %s OR receiver_email = %s", (email,email))
         return cursor.fetchall()
@@ -110,7 +111,7 @@ def historial_transaccion(email):
 #VER BALANCE
 def ver_balance(email):
     conn = get_connection()
-    cursor = conn.cursor(dictionary=True)
+    cursor = conn.cursor(cursor_factory=RealDictCursor)
     try:
         cursor.execute("SELECT balance FROM users WHERE email=%s",(email,))
         return cursor.fetchone()
@@ -121,7 +122,7 @@ def ver_balance(email):
 
 def get_amigos():
     conn = get_connection()
-    cursor = conn.cursor(dictionary=True)
+    cursor = conn.cursor(cursor_factory=RealDictCursor)
     try:
         cursor.execute ("SELECT nombre, email FROM users")
         return cursor.fetchall()
