@@ -1,5 +1,5 @@
 # entorno virtual
-venv/
+.venv/
 env/
 .env
 
