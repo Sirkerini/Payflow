@@ -65,7 +65,7 @@ def register():
     if len(apellido) < 3:
         return jsonify({"error": "Apellido demasiado corto"}), 400
     
-    if len(pin) != 4:
+    if len(pin) < 4:
         return jsonify({"error": "Tu password debe tener almenos 4 caracteres"}), 400
     
 
