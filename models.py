@@ -85,6 +85,7 @@ def crear_transaccion(sender_email, receiver_email, amount, descriptions):
             (sender_email, receiver_email, amount, descriptions)
         )
 
+        
         conn.commit()
         return {"msj": "Transacción exitosa"}
 

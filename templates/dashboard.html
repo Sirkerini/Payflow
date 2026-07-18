@@ -96,16 +96,27 @@
                         <th>Descripción</th>
                         <th>Fecha</th>
                     </tr>
+                    
+                    
+                    
 
                     {% for t in historial %}
                     <tr>
                         <td>{{ t.sender_email }}</td>
                         <td>{{ t.receiver_email }}</td>
-                        <td class="amount">${{ t.amount }}</td>
+                        <td class="amount">
+                            {% if t.sender_email == email %}
+                            <span class="text-danger">-${{ t.amount }}</span>
+                            {% else %}
+                            <span class="text-success">+${{ t.amount }}</span>
+                             {% endif %}
+                        </td>
                         <td>{{ t.descriptions }}</td>
                         <td>{{ t.created_time }}</td>
                     </tr>
                     {% endfor %}
+
+                    
 
                 </table>
 

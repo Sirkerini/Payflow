@@ -214,3 +214,12 @@ tr:hover{
     color:#16a34a;
 }
 
+.text-danger {
+    color: red;
+    font-weight: bold;
+}
+
+.text-success {
+    color: green;
+    font-weight: bold;
+}
